@@ -15,6 +15,8 @@ public class AnswerResource {
 
 
 
+
+
 	private final Logger logger = LoggerFactory.getLogger(AnswerResource.class);
 
 	private final QueryProcessor queryProcessor;
