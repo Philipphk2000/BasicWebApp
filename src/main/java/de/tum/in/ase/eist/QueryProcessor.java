@@ -15,7 +15,7 @@ public class QueryProcessor {
 
             String[] string= query.split(" ");
 
-            int number = Integer.parseInt(string[3]) + Integer.parseInt(string[5]);
+            int number = Integer.parseInt(string[string.length-3]) + Integer.parseInt(string[string.length-1]);
 
            return number + "";
         }
@@ -24,7 +24,7 @@ public class QueryProcessor {
 
             String substring = query.split(":")[1];
 
-            String[] string= substring.split(",");
+            String[] string= substring.split(", ");
 
             int number = 0;
 
@@ -38,11 +38,17 @@ public class QueryProcessor {
             return number + "";
         }
 
-
-
-
         else {
             return "";
         }
+    }
+
+
+    public static void main(String[] args) {
+
+        QueryProcessor queryProcessor = new QueryProcessor();
+
+        //queryProcessor.process("What is the largest number: 200, 400, 300");
+        System.out.println(queryProcessor.process("What is 20 plus 30"));
     }
 }
