@@ -24,7 +24,7 @@ public class QueryProcessor {
 
             String substring = query.split(":")[1];
 
-            String[] string= substring.split(" ");
+            String[] string= substring.split(",");
 
             int number = 0;
 
