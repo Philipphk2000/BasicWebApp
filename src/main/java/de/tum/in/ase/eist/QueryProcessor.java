@@ -1,6 +1,7 @@
 package de.tum.in.ase.eist;
 
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.StringUtils;
 
 @Service
 public class QueryProcessor {
@@ -22,15 +23,18 @@ public class QueryProcessor {
         else if (query.contains("largest")) {
 
 
-            String substring = query.split(":")[1];
+            String substring = query.split(":")[2];
 
-            String[] string= substring.split(", ");
+            String[] string= substring.split(",");
 
             int number = 0;
 
+
             for (int i = 0; i < string.length; i++) {
 
-                if (Integer.parseInt(string[i]) > number) {
+                String strings = string[i].replace(" ", "");
+
+                if (Integer.parseInt(strings) > number) {
                     number = Integer.parseInt(string[i]);
                 }
             }
@@ -48,7 +52,7 @@ public class QueryProcessor {
 
         QueryProcessor queryProcessor = new QueryProcessor();
 
-        //queryProcessor.process("What is the largest number: 200, 400, 300");
-        System.out.println(queryProcessor.process("What is 20 plus 30"));
+        queryProcessor.process("What is the largest number: 200, 400, 300");
+        //System.out.println(queryProcessor.process("What is 20 plus 30"));
     }
 }
