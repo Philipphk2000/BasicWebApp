@@ -19,20 +19,26 @@ public class QueryProcessor {
 
            return number + "";
         }
-        /*
         else if (query.contains("largest")) {
 
 
-            String substring = query.split(":");
+            String substring = query.split(":")[1];
 
-            String[] string= query.split(" ");
+            String[] string= substring.split(" ");
 
-            int number = Integer.parseInt(string[2]) + Integer.parseInt(string[4]);
+            int number = 0;
+
+            for (int i = 0; i < string.length; i++) {
+
+                if (Integer.parseInt(string[i]) > number) {
+                    number = Integer.parseInt(string[i]);
+                }
+            }
 
             return number + "";
         }
 
-         */
+
 
 
         else {
